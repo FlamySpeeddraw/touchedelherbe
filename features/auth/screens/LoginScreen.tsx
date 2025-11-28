@@ -1,3 +1,4 @@
+import Form from '@auth/components/Form';
 import TempBackButton from '@components/TempBackButton';
 import TempButton from '@components/TempButton';
 import TempTextInput from '@components/TempTextInput';
@@ -15,10 +16,7 @@ const LoginScreen = () => {
             <TempBackButton />
             <Title text="Se connecter" />
             <View style={{ marginTop: 40 }} />
-            <TempTextInput inputName='Mail' value={mail} setValue={setMail} />
-            <TempTextInput inputName='Mot de passe' value={mdp} setValue={setMdp} isPassword forgotPassword />
-            <View style={{ flex: 1 }} />
-            <TempButton text='Se connecter' to='/map' />
+            <Form />
             <View style={{ marginBottom: 20 }} />
         </SafeAreaView>
     );
