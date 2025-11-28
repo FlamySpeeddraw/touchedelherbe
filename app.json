@@ -2,6 +2,7 @@
   "expo": {
     "name": "touchedelherbe",
     "slug": "touchedelherbe",
+    "scheme": "touchedelherbe",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +26,16 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Autoriser $(PRODUCT_NAME) à utiliser la localisation"
+        }
+      ],
+      "expo-secure-store"
+    ]
   }
 }

@@ -1,6 +1,14 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
+    "strict": true,
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@auth/*": ["features/auth/*"],
+      "@shop/*": ["features/shop/*"],
+      "@profil/*": ["features/profil/*"],
+      "@map/*": ["features/map/*"],
+    }
   }
 }
