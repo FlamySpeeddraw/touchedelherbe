@@ -10,7 +10,7 @@ const RegisterScreen = () => {
             <TempBackButton />
             <Title text="S'enregistrer" />
             <View style={{ marginTop: 40 }} />
-            <Form />
+            <Form isRegister />
             <View style={{ marginBottom: 20 }} />
         </SafeAreaView>
     );

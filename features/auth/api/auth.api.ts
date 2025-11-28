@@ -6,7 +6,6 @@ export const verifyMailTaken = async (
     mail: string
 ): Promise<PostMailTakenResponse | PostMailTakenError> => {
     try {
-        console.log(`${API_URL}/auth/isMailUsed`)
         const response = await axios.post(`${API_URL}/auth/isMailUsed`, { mail });
 
         return {
