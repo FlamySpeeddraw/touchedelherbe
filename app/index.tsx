@@ -1,5 +1,3 @@
-import TempButton from '@components/TempButton';
-import Title from '@components/Title';
 import { StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 

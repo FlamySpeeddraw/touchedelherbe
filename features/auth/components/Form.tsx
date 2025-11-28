@@ -1,5 +1,4 @@
 import { verifyMailTaken } from '@auth/api/auth.api';
-import TempButton from '@components/TempButton';
 import TempPressable from '@components/TempPressable';
 import TempTextInput from '@components/TempTextInput';
 import { useAuth } from 'context/AuthContext';

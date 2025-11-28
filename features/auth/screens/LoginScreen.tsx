@@ -1,7 +1,5 @@
 import Form from '@auth/components/Form';
 import TempBackButton from '@components/TempBackButton';
-import TempButton from '@components/TempButton';
-import TempTextInput from '@components/TempTextInput';
 import Title from '@components/Title';
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';

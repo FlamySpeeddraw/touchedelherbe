@@ -1,10 +1,15 @@
-import TempButton from '@components/TempButton';
+import Button3D from '@components/Button3D';
 import BoxStat from '@profil/components/BoxStat';
 import ProfilePicture from '@profil/components/ProfilePicture';
-import { StyleSheet, Text, View } from 'react-native';
+import { useAuth } from 'context/AuthContext';
+import { useRouter } from 'expo-router';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const ProfilScreen = () => {
+    const { onLogout } = useAuth();
+    const router = useRouter();
+
     return (
         <SafeAreaView style={styles.container}>
             <ProfilePicture pseudo='Flamy' />
@@ -14,7 +19,12 @@ const ProfilScreen = () => {
                 <BoxStat data='rencontres' />
                 <BoxStat data='évènements' />
             </View>
-            <TempButton text='Historique des achats' to='/historique' />
+            <Button3D onPress={() => router.push("/historique")} width={"90%"} color={'#DDD'} darkColor={'#9c9c9cff'}>
+                <Text>Historique des achats</Text>
+            </Button3D>
+            <Pressable onPress={() => onLogout!()} style={{ backgroundColor: 'red', width: '90%', marginTop: 20, paddingVertical: 20 }}>
+                <Text>Deconnexion</Text>
+            </Pressable>
         </SafeAreaView>
     );
 };
