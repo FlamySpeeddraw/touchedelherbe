@@ -5,6 +5,7 @@ import { authRequestHandler } from "utils/auth";
 import { ACCESS_TOKEN_KEY, API_URL, REFRESH_TOKEN_KEY } from "const/general.const";
 
 interface AuthProps {
+    loaded?: boolean | null;
     authState?: { access: string | null, refresh: string | null, authenticated: boolean | null };
     user?: { mail: string | null, pseudo: string | null };
     onRegister?: (mail: string, password: string, pseudo: string) => Promise<any>;
@@ -23,6 +24,7 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }: any) => {
     const [authState, setAuthState] = useState<{ access: string | null, refresh: string | null, authenticated: boolean | null }>({ access: null, refresh: null, authenticated: null });
     const [user, setUser] = useState<{ mail: string | null, pseudo: string | null }>({ mail: null, pseudo: null });
+    const [loaded, setLoaded] = useState<boolean | null>(false);
 
     useEffect(() => {
         const loadToken = async () => {
@@ -34,6 +36,8 @@ export const AuthProvider = ({ children }: any) => {
 
                 setAuthState({ access: access, refresh: refresh, authenticated: true });
             }
+
+            setLoaded(true);
         }
 
         loadToken();
@@ -68,7 +72,7 @@ export const AuthProvider = ({ children }: any) => {
             await SecureStore.setItemAsync(ACCESS_TOKEN_KEY, result.data.accessToken);
             await SecureStore.setItemAsync(REFRESH_TOKEN_KEY, result.data.refreshToken);
 
-            const infos = await axios.get(`${API_URL}/user/infos`);
+            const infos = await axios.get(`${API_URL}/user/getInfos`);
             setUser({ mail: infos.data.mail, pseudo: infos.data.pseudo });
 
             return result;
@@ -99,7 +103,8 @@ export const AuthProvider = ({ children }: any) => {
         onRefreshAccess: refreshAccess,
         onUpdateUser: updateUser,
         authState,
-        user
+        user,
+        loaded
     };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
