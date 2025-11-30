@@ -35,7 +35,15 @@
           "locationAlwaysAndWhenInUsePermission": "Autoriser $(PRODUCT_NAME) à utiliser la localisation"
         }
       ],
-      "expo-secure-store"
+      "expo-secure-store",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Autoriser $(PRODUCT_NAME) à utiliser votre caméra",
+          "microphonePermission": "Autoriser $(PRODUCT_NAME) à utiliser votre microphone",
+          "recordAudioAndroid": true
+        }
+      ]
     ]
   }
 }
